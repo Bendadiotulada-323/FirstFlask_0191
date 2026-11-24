@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Flask</title>
+    <!-- Menghubungkan CSS dari folder static Flask -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Form Input Data</h1>
+        
+        <!-- Sesuaikan action dengan nama route POST di app.py Anda (misal: '/' atau '/submit') -->
+        <form action="/" method="POST" class="form-group">
+            
+            <!-- Label -->
+            <label for="input_data">Masukkan Teks:</label>
+            
+            <!-- TextField -->
+            <input 
+                type="text" 
+                id="input_data" 
+                name="input_data" 
+                placeholder="Ketik sesuatu di sini..." 
+                required
+            >
+            
+            <!-- Button -->
+            <button type="submit">Kirim</button>
+            
+        </form>
+
+        <!-- Opsional: Menampilkan hasil balikan dari Flask jika variabel 'hasil' dikirim -->
+        {% if hasil %}
+        <div class="result-box">
+            <strong>Output:</strong> {{ hasil }}
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
